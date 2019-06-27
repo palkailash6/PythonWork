@@ -1,0 +1,67 @@
+{
+	"name": "Sal vs Exp pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Dataset provider",
+				"type": "WebActivity",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://storageaccountcg.blob.core.windows.net/datasetblob/Salary_Data.csv",
+					"method": "GET",
+					"linkedServices": [
+						{
+							"referenceName": "DatasetAzureBlobStorage",
+							"type": "LinkedServiceReference"
+						}
+					],
+					"datasets": [
+						{
+							"referenceName": "SalaryExpDataset",
+							"type": "DatasetReference"
+						}
+					]
+				}
+			},
+			{
+				"name": "LinearModel",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Dataset provider",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"notebookPath": "/Users/kailash.pal1@cgm4l.onmicrosoft.com/Sal Vs Exp Model",
+					"baseParameters": {
+						"input": {
+							"value": "@string(activity('Dataset provider').output)",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

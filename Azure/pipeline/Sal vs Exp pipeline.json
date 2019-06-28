@@ -5,6 +5,7 @@
 			{
 				"name": "Dataset provider",
 				"type": "WebActivity",
+				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -12,8 +13,9 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [],
 				"typeProperties": {
-					"url": "https://storageaccountcg.blob.core.windows.net/datasetblob/Salary_Data.csv",
+					"url": "https://storageaccountcg.blob.core.windows.net/datasetblob/Google_Stock_Price_Train.csv",
 					"method": "GET",
 					"linkedServices": [
 						{
@@ -23,7 +25,7 @@
 					],
 					"datasets": [
 						{
-							"referenceName": "SalaryExpDataset",
+							"referenceName": "googlestockDataset",
 							"type": "DatasetReference"
 						}
 					]
@@ -47,6 +49,7 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [],
 				"typeProperties": {
 					"notebookPath": "/Users/kailash.pal1@cgm4l.onmicrosoft.com/Sal Vs Exp Model",
 					"baseParameters": {
@@ -61,7 +64,8 @@
 					"type": "LinkedServiceReference"
 				}
 			}
-		]
+		],
+		"annotations": []
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

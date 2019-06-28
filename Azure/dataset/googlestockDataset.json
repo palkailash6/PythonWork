@@ -1,15 +1,16 @@
 {
-	"name": "SalaryExpDataset",
+	"name": "googlestockDataset",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DatasetAzureBlobStorage",
 			"type": "LinkedServiceReference"
 		},
+		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Salary_Data.csv",
+				"fileName": "Google_Stock_Price_Train.csv",
 				"container": "datasetblob"
 			},
 			"columnDelimiter": ",",

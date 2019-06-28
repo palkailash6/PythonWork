@@ -51,7 +51,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Azure-notebook/StockPriceModel",
+					"notebookPath": "/Users/kailash.pal1@cgm4l.onmicrosoft.com/Stock price train model",
 					"baseParameters": {
 						"input": {
 							"value": "@string(activity('Dataset provider').output)",

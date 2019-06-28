@@ -10,6 +10,9 @@
 		},
 		"DatasetAzureBlobStorage_connectionString": {
 			"value": ""
+		},
+		"AzureDatabricks2_accessToken": {
+			"value": ""
 		}
 	}
 }

@@ -15,13 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Azure-notebook/StockPriceTestScript",
-					"baseParameters": {
-						"input": {
-							"value": "@string(activity('Dataset provider').output)",
-							"type": "Expression"
-						}
-					}
+					"notebookPath": "/Azure-notebook/StockPriceTestScript"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks2",

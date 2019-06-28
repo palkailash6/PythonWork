@@ -1,0 +1,48 @@
+{
+	"name": "GoogleStockTrainDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DatasetAzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Google_Stock_Price_Train.csv",
+				"container": "datasetblob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "Open",
+				"type": "String"
+			},
+			{
+				"name": "High",
+				"type": "String"
+			},
+			{
+				"name": "Low",
+				"type": "String"
+			},
+			{
+				"name": "Close",
+				"type": "String"
+			},
+			{
+				"name": "Volume",
+				"type": "String"
+			}
+		]
+	}
+}

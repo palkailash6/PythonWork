@@ -25,7 +25,7 @@
 					],
 					"datasets": [
 						{
-							"referenceName": "googlestockDataset",
+							"referenceName": "GoogleStockTrainDataset",
 							"type": "DatasetReference"
 						}
 					]
@@ -51,7 +51,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/kailash.pal1@cgm4l.onmicrosoft.com/Sal Vs Exp Model",
+					"notebookPath": "/Users/kailash.pal1@cgm4l.onmicrosoft.com/Stock price train model",
 					"baseParameters": {
 						"input": {
 							"value": "@string(activity('Dataset provider').output)",

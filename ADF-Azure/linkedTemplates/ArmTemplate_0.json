@@ -52,7 +52,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/googlestockDataset')]",
+			"name": "[concat(parameters('factoryName'), '/GoogleStockTrainDataset')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -75,11 +75,27 @@
 				},
 				"schema": [
 					{
-						"name": "YearsExperience",
+						"name": "Date",
 						"type": "String"
 					},
 					{
-						"name": "Salary",
+						"name": "Open",
+						"type": "String"
+					},
+					{
+						"name": "High",
+						"type": "String"
+					},
+					{
+						"name": "Low",
+						"type": "String"
+					},
+					{
+						"name": "Close",
+						"type": "String"
+					},
+					{
+						"name": "Volume",
 						"type": "String"
 					}
 				]
@@ -89,7 +105,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Sal vs Exp pipeline')]",
+			"name": "[concat(parameters('factoryName'), '/stock price pipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -118,7 +134,7 @@
 							],
 							"datasets": [
 								{
-									"referenceName": "googlestockDataset",
+									"referenceName": "GoogleStockTrainDataset",
 									"type": "DatasetReference",
 									"parameters": {}
 								}
@@ -145,7 +161,7 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Users/kailash.pal1@cgm4l.onmicrosoft.com/Sal Vs Exp Model",
+							"notebookPath": "/Users/kailash.pal1@cgm4l.onmicrosoft.com/Stock price train model",
 							"baseParameters": {
 								"input": {
 									"value": "@string(activity('Dataset provider').output)",
@@ -163,7 +179,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/DatasetAzureBlobStorage')]",
-				"[concat(variables('factoryId'), '/datasets/googlestockDataset')]",
+				"[concat(variables('factoryId'), '/datasets/GoogleStockTrainDataset')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks1')]"
 			]
 		}

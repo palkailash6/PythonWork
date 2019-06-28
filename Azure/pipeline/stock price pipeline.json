@@ -1,5 +1,5 @@
 {
-	"name": "Sal vs Exp pipeline",
+	"name": "stock price pipeline",
 	"properties": {
 		"activities": [
 			{

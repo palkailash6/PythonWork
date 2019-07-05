@@ -1,0 +1,44 @@
+{
+	"name": "Social_network_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DatasetAzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Social_Network_Ads.csv",
+				"container": "datasetblob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "User ID",
+				"type": "String"
+			},
+			{
+				"name": "Gender",
+				"type": "String"
+			},
+			{
+				"name": "Age",
+				"type": "String"
+			},
+			{
+				"name": "EstimatedSalary",
+				"type": "String"
+			},
+			{
+				"name": "Purchased",
+				"type": "String"
+			}
+		]
+	}
+}

@@ -44,6 +44,15 @@
 					"secureInput": false
 				},
 				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/kailash.pal1@cgm4l.onmicrosoft.com/week6_notebook",
+					"baseParameters": {
+						"value": {
+							"value": "@string(activity('Dataset').output)",
+							"type": "Expression"
+						}
+					}
+				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
 					"type": "LinkedServiceReference"

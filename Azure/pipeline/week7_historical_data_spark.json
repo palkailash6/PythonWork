@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup1",
+				"name": "Data Provider",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -29,7 +29,41 @@
 					"dataset": {
 						"referenceName": "train_file_twitter",
 						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Model",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Data Provider",
+						"dependencyConditions": [
+							"Succeeded"
+						]
 					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/kailash.pal1@cgm4l.onmicrosoft.com/week7_twitter_hostorical",
+					"baseParameters": {
+						"input_val": {
+							"value": "@string(activity('Data Provider').output)",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "TwitterAD",
+					"type": "LinkedServiceReference"
 				}
 			}
 		],

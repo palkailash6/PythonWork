@@ -1,0 +1,37 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory Name",
+			"defaultValue": "ADF-Azure"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStore1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDataLakeStore",
+				"typeProperties": {
+					"dataLakeStoreUri": "https://cgdatalake.azuredatalakestore.net/webhdfs/v1",
+					"servicePrincipalId": "64324356-5cdb-467e-aa70-fdb7bd4db289",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"tenant": "524b0e96-35a3-46ef-ade3-a76c1936a890",
+					"subscriptionId": "398885da-48e8-4d7b-80c6-ce50406b8c1a",
+					"resourceGroupName": "AzureResourceGrp"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
